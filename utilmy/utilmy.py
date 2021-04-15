@@ -178,6 +178,9 @@ def git_current_hash(mode='full'):
    return label
 
 def git_current_branch():
+    """
+    it returns the current branch
+    """
     try :
       cmd = "git branch --show-current"
       branch, merr = os_system(cmd)
