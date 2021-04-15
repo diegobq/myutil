@@ -177,6 +177,12 @@ def git_current_hash(mode='full'):
    label = label.decode('utf-8')
    return label
 
+def git_current_branch():
+    try :
+      cmd = "git branch --show-current"
+      branch, merr = os_system(cmd)
+    except : return None    
+    return branch.strip()
 
 
 
