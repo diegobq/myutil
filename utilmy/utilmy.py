@@ -187,6 +187,13 @@ def git_current_hash(mode='full'):
 
 
 ################################################################################################
+def os_isRootFolder(path=""):
+    """
+    check if path matchs root folder
+    """
+    import os
+    return os.path.abspath(path) == '/'
+
 def os_removedirs(path):
     """
        issues with no empty Folder
