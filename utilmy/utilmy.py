@@ -205,9 +205,8 @@ def os_removedirs(path):
        issues with no empty Folder
     # Delete everything reachable from the directory named in 'top',
     # assuming there are no symbolic links.
-    # CAUTION:  This is dangerous!  For example, if top == '/', it could delete all your disk files.
     """
-    if len(path) < 3 :
+    if os_isRootFolder(path) :
         print("cannot delete root folder")
         return False
 
