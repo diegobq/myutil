@@ -209,7 +209,7 @@ def os_removedirs(path):
     # Delete everything reachable from the directory named in 'top',
     # assuming there are no symbolic links.
     """
-    if os_isRootFolder(path) :
+    if os_path_isrootfolder(path) :
         print("cannot delete root folder")
         return False
 
