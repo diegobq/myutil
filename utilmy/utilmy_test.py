@@ -4,17 +4,17 @@
 
 #########################################################################################
 def test1():
-    from utilmy import (os_isRootFolder)
+    from utilmy import (os_path_isrootfolder)
 
     #####################################################################################
-    assert os_isRootFolder("/"), "'/': it's not root folder"
-    assert os_isRootFolder("/./"),  "'/./': it's not root folder"
-    assert os_isRootFolder("/././"),  "'/././': it's not root folder"
-    assert os_isRootFolder("/.."), "'/..': it's not root folder"
-    assert os_isRootFolder("/../.."), "'/..': it's not root folder"
+    assert os_path_isrootfolder("/"), "'/': it's not root folder"
+    assert os_path_isrootfolder("/./"),  "'/./': it's not root folder"
+    assert os_path_isrootfolder("/././"),  "'/././': it's not root folder"
+    assert os_path_isrootfolder("/.."), "'/..': it's not root folder"
+    assert os_path_isrootfolder("/../.."), "'/..': it's not root folder"
 
-    assert not os_isRootFolder(), "'': it's root folder"
-    assert not os_isRootFolder("../utilmy"), "'../utilmy': it's root folder"
+    assert not os_path_isrootfolder(), "'': it's root folder"
+    assert not os_path_isrootfolder("../utilmy"), "'../utilmy': it's root folder"
 
 if __name__ == "__main__":
     import utilmy_test

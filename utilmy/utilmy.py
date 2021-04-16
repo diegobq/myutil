@@ -196,7 +196,7 @@ def git_current_branch():
 
 
 ################################################################################################
-def os_isRootFolder(path=""):
+def os_path_isrootfolder(path=""):
     """
     check if path matchs root folder
     """
