@@ -16,6 +16,23 @@ def test1():
     assert not os_path_isrootfolder(), "'': it's root folder"
     assert not os_path_isrootfolder("../utilmy"), "'../utilmy': it's root folder"
 
+def test2():
+    from utilmy import (every)
+
+    #####################################################################################
+    assert every(), 'Not every TRUE'
+    assert every([]), 'Not every TRUE'
+    assert every([1,2,3,4,5]), 'Not every TRUE'
+    assert every([True, True, True]), 'Not every TRUE'
+    assert every([2, 4, 6], lambda x, y, z: (x % 2) == 0), 'Not every TRUE'
+    assert every([1, 5, 15], lambda x, y, z: (x % 2) != 0), 'Not every TRUE'
+    assert every([1, 5, 15], lambda x, index, z: index < 3), 'Not every TRUE'
+    assert every([1, 5, 15], lambda x, index, items: items[index] < 16), 'Not every TRUE'
+
+    assert not every([0, 0, 0]), 'every TRUE'
+    assert not every([True, False, True]), 'every TRUE'
+    assert not every([1, 5, 15], lambda x, index, items: items[index] < 15), 'every TRUE'
+
 if __name__ == "__main__":
     import utilmy_test
     tests = list(filter(lambda functionName: not functionName.startswith("__"), dir(utilmy_test)))

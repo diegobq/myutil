@@ -352,15 +352,30 @@ def load(to_file=""):
 
 
 
+################################################################################################
+def every(iterable=None, predicate=None):
+  """
+    it returns true when predicate is TRUE for every element in iterable 
+  """
+  if iterable is None: 
+    iterable = []
+  if predicate is None:
+    predicate = lambda item, y, z: item
+
+  all_true = True
+  for index, item in enumerate(iterable):
+    if not predicate(item, index, iterable):
+      all_true = False
+      break
+
+  return all_true
+
+
 
 ################################################################################################
 class dict_to_namespace(object):
     def __init__(self, d):
         self.__dict__ = d
-
-
-
-
 
 
 
