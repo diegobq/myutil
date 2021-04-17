@@ -371,6 +371,38 @@ def every(iterable=None, predicate=None):
   return all_true
 
 
+################################################################################################
+condition = {
+  'year': 12 * 30 * 24 * 60 * 60,
+  'month': 30 * 24 * 60 * 60,
+  'day': 24 * 60 * 60,
+  'hour': 60 * 60,
+  'minute': 60,
+  'second': 1
+}
+def timeago(from_datetime, to_datetime):
+  """
+    it returns time ago as string 
+  """
+  seconds = (to_datetime - from_datetime).total_seconds()
+  if seconds < 0:
+    return None
+
+  if seconds < 1:
+    return 'less than 1 second ago'
+
+  timeago_str = ''
+  for key, value in condition.items():
+    diff = seconds / value
+    if diff >= 1:
+      round_diff = to_int(diff)
+      plural = 's' if round_diff > 1 else ''
+      timeago_str = f'about {round_diff} {key}{plural} ago'
+      break
+
+  return timeago_str
+
+
 
 ################################################################################################
 class dict_to_namespace(object):
