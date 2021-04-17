@@ -169,6 +169,27 @@ def git_repo_root():
     except : return None    
     return path
 
+def git_branch_names():
+    """
+    it returns an array with branch names
+    """
+    try :
+      cmd = "git branch"
+      branch, merr = os_system(cmd)
+    except : return None
+    branches = branch.strip().splitlines()
+    return branch.strip().splitlines()
+
+def git_repo_remote_origin_url():
+    """
+    it returns remote origin url from a repo
+    """
+    try :
+      cmd = "git config --get remote.origin.url"
+      remote_origin_url, merr = os_system(cmd)
+    except : return None    
+    return remote_origin_url.strip()
+
     
 def git_current_hash(mode='full'):
    import subprocess 
@@ -183,7 +204,7 @@ def git_current_branch():
     """
     try :
       cmd = "git branch --show-current"
-      branch, merr = os_system(cmd)
+      branch, _ = os_system(cmd)
     except : return None    
     return branch.strip()
 
